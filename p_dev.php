@@ -2,7 +2,7 @@
 include 'functions.php';
 $stas=$_GET['sta'];
 
-$sql ="SELECT * FROM dev order by id asc";
+$sql ="SELECT * FROM dev order by id_dev asc";
  
 $result = $conn->query($sql);
  
@@ -10,7 +10,7 @@ if ($result->num_rows >0) {
  
  $ind=0;
  while($row[] = $result->fetch_assoc()) {
-     $row[$ind]["sta"]=$stas[$ind];
+     $row[$ind]["sta"]=$stas[$row[$ind]["id_dev"]];
      $ind++;
     $tem = $row;
  

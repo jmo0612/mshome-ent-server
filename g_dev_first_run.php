@@ -14,7 +14,13 @@ if ($result->num_rows >0) {
             $out.="0";    
             $ind2++;
         }
-        $out.=$row[$ind++]["sta"];
+        if($row[$ind]["saving_state"]==0){
+            $out.="0";
+            $ind++;
+            
+        }else{
+            $out.=$row[$ind++]["sta"];
+        }
         $ind2++;
         $tem = $row;
         $json = json_encode($tem);
