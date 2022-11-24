@@ -18,9 +18,19 @@ if ($result->num_rows >0) {
             $out.="0";
             $ind++;
             
+        }else if($row[$ind]["saving_state"]==1){
+            if($row[$ind]["sta"]==2){
+                $out.="1";// MODIFICATION: first run without IR
+            }else{
+                $out.="0";
+            }
+            $ind++;
         }else{
-            $out.=$row[$ind++]["sta"];
+            //$out.=$row[$ind++]["sta"];
+            $out.="2"; // MODIFICATION: always run without IR (from acOff)
+            $ind++;
         }
+        
         $ind2++;
         $tem = $row;
         $json = json_encode($tem);
